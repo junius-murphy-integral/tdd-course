@@ -3,16 +3,7 @@ public final class FractionArithmeticUtility {
     public static Fraction addFraction(Fraction fractionOne, Fraction fractionTwo){
 
         Fraction newFraction = getCombinedFraction(fractionOne, fractionTwo);
-
-        if(newFraction.numerator == 0){
-            newFraction.denominator = 1;
-            return newFraction;
-        }
-
-        int greatestCommonDenominator = getGreatestCommonDenominator(newFraction.numerator, newFraction.denominator);
-        newFraction.numerator /= greatestCommonDenominator;
-        newFraction.denominator /= greatestCommonDenominator;
-        return newFraction;
+        return simplifyFraction(newFraction);
     }
 
     private static Fraction getCombinedFraction(Fraction fractionOne, Fraction fractionTwo){
@@ -20,6 +11,18 @@ public final class FractionArithmeticUtility {
         fractionOne.numerator *= fractionTwo.denominator;
         fractionTwo.numerator *= fractionOne.denominator;
         return new Fraction(fractionOne.numerator + fractionTwo.numerator, newDenominator);
+    }
+
+    private static Fraction simplifyFraction(Fraction fraction){
+        if(fraction.numerator == 0){
+            fraction.denominator = 1;
+            return fraction;
+        }
+
+        int greatestCommonDenominator = getGreatestCommonDenominator(fraction.numerator, fraction.denominator);
+        fraction.numerator /= greatestCommonDenominator;
+        fraction.denominator /= greatestCommonDenominator;
+        return fraction;
     }
 
     private static int getGreatestCommonDenominator(int numberOne, int numberTwo){
