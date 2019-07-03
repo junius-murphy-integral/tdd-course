@@ -51,4 +51,16 @@ public class FractionArithmeticTest {
                         "Actual: " + result.numerator + "/" + result.denominator
                 , result.equals(expectedResult));
     }
+
+    @Test
+    public void addFraction_addToCreateFractionLessThanOne()
+    {
+        Fraction fraction1 = new Fraction(1, 5);
+        Fraction fraction2 = new Fraction(2, 5);
+        Fraction expectedResult = new Fraction(3, 5);
+        Fraction result = FractionArithmeticUtility.addFraction(fraction1, fraction2);
+        assertTrue("Expected: " + expectedResult.numerator + "/" + expectedResult.denominator + "\n" +
+                        "Actual: " + result.numerator + "/" + result.denominator
+                , result.equals(expectedResult));
+    }
 }
