@@ -2,11 +2,11 @@ public final class FractionArithmeticUtility {
 
     public static Fraction addFraction(Fraction fractionOne, Fraction fractionTwo){
 
-        Fraction newFraction = getCombinedFraction(fractionOne, fractionTwo);
-        return simplifyFraction(newFraction);
+        Fraction combinedFraction = combineFraction(fractionOne, fractionTwo);
+        return simplifyFraction(combinedFraction);
     }
 
-    private static Fraction getCombinedFraction(Fraction fractionOne, Fraction fractionTwo){
+    private static Fraction combineFraction(Fraction fractionOne, Fraction fractionTwo){
         int newDenominator = fractionOne.denominator * fractionTwo.denominator;
         fractionOne.numerator *= fractionTwo.denominator;
         fractionTwo.numerator *= fractionOne.denominator;
