@@ -39,4 +39,16 @@ public class FractionArithmeticTest {
                         "Actual: " + result.numerator + "/" + result.denominator
                 , result.equals(expectedResult));
     }
+
+    @Test
+    public void addFraction_addToCreateFractionGreaterThanOne()
+    {
+        Fraction fraction1 = new Fraction(1, 1);
+        Fraction fraction2 = new Fraction(1, 2);
+        Fraction expectedResult = new Fraction(3, 2);
+        Fraction result = FractionArithmeticUtility.addFraction(fraction1, fraction2);
+        assertTrue("Expected: " + expectedResult.numerator + "/" + expectedResult.denominator + "\n" +
+                        "Actual: " + result.numerator + "/" + result.denominator
+                , result.equals(expectedResult));
+    }
 }
